@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackDot Music</title>
+    <!-- Simple styling for a modern dark-themed landing page -->
+    <style>
+        :root {
+            --bg-color: #0c0c0c;
+            --primary-color: #ffffff;
+            --accent-color: #00bcd4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .navbar .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0097a7;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .about {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .card h3 {
+            margin: 1rem 0 0.5rem;
+        }
+        .card .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .stats div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+        .clients-grid img {
+            max-width: 160px;
+            max-height: 80px;
+            object-fit: contain;
+            background: #fff;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .events ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .events li {
+            background-color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact {
+            text-align: center;
+        }
+        .contact address {
+            font-style: normal;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <!-- Logo with white background for visibility -->
+                <img src="logo.png" alt="BlackDot Music logo">
+                <strong>BlackDot Music</strong>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#work">Our Work</a>
+                <a href="#clients">Clients</a>
+                <a href="#events">Events</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <!-- Hero background video placeholder. Replace `showreel.mp4` with your actual video file -->
+        <video autoplay muted loop>
+            <source src="showreel.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div>
+            <h1>Where Creativity Meets Markets</h1>
+            <p>Black Dot Music LTD is an entertainment company &amp; creative agency headquartered in Dar es Salaam, Tanzania, that produces entertainment content, manages talent, and collaborates with other businesses with the goal of adding value to them.</p>
+            <a href="#work" class="btn">See Our Work</a>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>BlackDot Music is the evolution of BlackDot Music Studio — a Dar es Salaam–born studio that has produced records for leading artists across East Africa. Building on years of studio excellence, we now operate as a full-service creative agency that connects music, media, brand storytelling, talent management, and live experiences.</p>
+            <p><strong>Vision:</strong> To be Africa’s most culturally relevant creative company — shaping sound, visuals and experiences that move people and markets.</p>
+            <p><strong>Mission:</strong> Discover and develop talent, build powerful IP, and deliver world‑class creative solutions for artists, brands, and communities.</p>
+        </div>
+    </section>
+    <section id="work">
+        <h2>Our Work</h2>
+        <div class="stats-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Rayvanny" alt="Rayvanny">
+                <h3>Rayvanny</h3>
+                <div class="stats">
+                    <div><strong>4</strong><span>Records</span></div>
+                    <div><strong>50M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Harmonize" alt="Harmonize">
+                <h3>Harmonize</h3>
+                <div class="stats">
+                    <div><strong>2</strong><span>Records</span></div>
+                    <div><strong>6M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Whozu" alt="Whozu">
+                <h3>Whozu</h3>
+                <div class="stats">
+                    <div><strong>4</strong><span>Records</span></div>
+                    <div><strong>50M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Baddest+47" alt="Baddest 47">
+                <h3>Baddest 47</h3>
+                <div class="stats">
+                    <div><strong>2</strong><span>Records</span></div>
+                    <div><strong>6M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Mabantu" alt="Mabantu">
+                <h3>Mabantu</h3>
+                <div class="stats">
+                    <div><strong>5</strong><span>Records</span></div>
+                    <div><strong>2M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Nay+Wa+Mitego" alt="Nay Wa Mitego">
+                <h3>Nay Wa Mitego</h3>
+                <div class="stats">
+                    <div><strong>3</strong><span>Records</span></div>
+                    <div><strong>2M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400?text=Ibraah" alt="Ibraah">
+                <h3>Ibraah</h3>
+                <div class="stats">
+                    <div><strong>1</strong><span>Record</span></div>
+                    <div><strong>2M+</strong><span>YouTube</span></div>
+                    <div><strong>&mdash;</strong><span>Spotify</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="clients">
+        <h2>Our Clients</h2>
+        <div class="clients-grid">
+            <img src="NMB.png" alt="NMB">
+            <img src="ATE.png" alt="Association of Tanzania Employers (ATE)">
+            <img src="YAI.png" alt="Young and Alive Initiative (YAI)">
+        </div>
+    </section>
+    <section id="events" class="events">
+        <h2>Events</h2>
+        <ul>
+            <li><span>BlackDot Live Showcase</span> <span>— 25 Oct 2025</span></li>
+            <li><span>Sauti Za Kwetu Festival</span> <span>— 12 Dec 2025</span></li>
+            <li><span>Corporate Creativity Summit</span> <span>— 5 Feb 2026</span></li>
+        </ul>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <address>
+            BlackDot Music Ltd<br>
+            25 Ajabuziada St., Mpakani B, Kijitonyama<br>
+            Dar es Salaam, Tanzania<br>
+            Email: <a href="mailto:admin@blackdotmusictz.com">admin@blackdotmusictz.com</a><br>
+            Phone: <a href="tel:+255766942121">+255 766 942 121</a>
+        </address>
+        <p>Create | Collaborate | Manage — Where music meets marketing.</p>
+    </section>
+    <footer>
+        &copy; 2025 BlackDot Music. All rights reserved.
+    </footer>
+</body>
+</html>
